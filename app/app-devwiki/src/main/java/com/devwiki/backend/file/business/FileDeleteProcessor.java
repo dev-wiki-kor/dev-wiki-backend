@@ -1,7 +1,7 @@
 package com.devwiki.backend.file.business;
 
-import com.devwiki.backend.file.business.exception.FileProcessorException;
-import com.devwiki.backend.file.business.model.FileMetadata;
+import com.devwiki.backend.file.exception.FileProcessorException;
+import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.port.in.FileDeleteUseCase;
 import com.devwiki.backend.file.port.out.FileMetaDataRepository;
 import com.devwiki.backend.file.port.out.FileRepository;
@@ -9,7 +9,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import static com.devwiki.backend.file.business.exception.FileProcessorException.DELETE;
+import static com.devwiki.backend.file.exception.FileProcessorException.DELETE;
 
 @RequiredArgsConstructor
 @Service

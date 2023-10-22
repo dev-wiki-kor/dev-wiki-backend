@@ -1,6 +1,8 @@
-package com.devwiki.backend.file.business.exception;
+package com.devwiki.backend.file.exception;
 
-public class FileProcessorException extends RuntimeException {
+import com.devwiki.backend.exception.BusinessException;
+
+public class FileProcessorException extends BusinessException {
     public static final String DEFAULT = "Failed to store com.devwiki.backend.file";
     public static final String DELETE = "Failed to delete com.devwiki.backend.file at path: %s";
     public static final String LOAD = "Could not load com.devwiki.backend.file: %s";

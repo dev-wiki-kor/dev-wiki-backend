@@ -1,4 +1,4 @@
-package com.devwiki.backend.file.business.model;
+package com.devwiki.backend.file.model;
 
 import com.devwiki.backend.file.model.StorageType;
 

@@ -1,6 +1,6 @@
 package com.devwiki.backend.file.port.out;
 
-import com.devwiki.backend.file.business.model.FileMetadata;
+import com.devwiki.backend.file.model.FileMetadata;
 
 import java.util.Optional;
 

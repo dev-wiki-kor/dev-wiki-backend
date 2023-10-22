@@ -1,3 +1,7 @@
+dependencies {
+    implementation project(':core-domain')
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }

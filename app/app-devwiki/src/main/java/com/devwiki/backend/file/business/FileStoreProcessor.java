@@ -1,11 +1,12 @@
 package com.devwiki.backend.file.business;
 
-import com.devwiki.backend.file.business.model.FileMetadata;
+import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.model.FileHolder;
 import com.devwiki.backend.file.model.StorageType;
 import com.devwiki.backend.file.port.in.FileStoreUseCase;
 import com.devwiki.backend.file.port.out.FileMetaDataRepository;
 import com.devwiki.backend.file.port.out.FileRepository;
+import com.devwiki.backend.file.validator.FileValidator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

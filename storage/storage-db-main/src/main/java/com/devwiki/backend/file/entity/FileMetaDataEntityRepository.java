@@ -1,6 +1,6 @@
 package com.devwiki.backend.file.entity;
 
-import com.devwiki.backend.file.business.model.FileMetadata;
+import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.port.out.FileMetaDataRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
