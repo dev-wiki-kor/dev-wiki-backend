@@ -1,6 +1,6 @@
 rootProject.name = 'backend'
 
-include 'core-web', 'core-jpa'
+include 'core-web', 'core-jpa', 'core-domain'
 include 'storage-db-main'
 include 'domain-devwiki'
 include 'api-devwiki'

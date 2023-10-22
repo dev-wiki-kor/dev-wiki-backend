@@ -1,4 +1,4 @@
-package exception;
+package com.devwiki.backend.exception;
 
 public class WebException extends RuntimeException {
 
