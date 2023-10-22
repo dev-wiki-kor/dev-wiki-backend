@@ -1,7 +1,6 @@
 package com.devwiki.backend.file.entity;
 
 import com.devwiki.backend.file.business.model.FileMetadata;
-import com.devwiki.backend.file.entity.FileMetadataEntity;
 import org.springframework.stereotype.Component;
 
 @Component

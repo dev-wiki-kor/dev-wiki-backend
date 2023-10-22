@@ -13,25 +13,25 @@ rootProject.children.each {
 }
 
 rootProject.children.each {
-    if(it.name.startsWith("storage")) {
+    if (it.name.startsWith("storage")) {
         it.projectDir = file("storage/${it.name}")
     }
 }
 
 rootProject.children.each {
-    if(it.name.startsWith("domain")) {
+    if (it.name.startsWith("domain")) {
         it.projectDir = file("domain/${it.name}")
     }
 }
 
 rootProject.children.each {
-    if(it.name.startsWith("app")) {
+    if (it.name.startsWith("app")) {
         it.projectDir = file("app/${it.name}")
     }
 }
 
 rootProject.children.each {
-    if(it.name.startsWith("api")) {
+    if (it.name.startsWith("api")) {
         it.projectDir = file("api/${it.name}")
     }
 }

@@ -6,6 +6,8 @@ import java.io.File;
 
 public interface FileRepository {
     File load(String fileName);
+
     void delete(String fileName);
+
     void store(FileHolder fileHolder);
 }

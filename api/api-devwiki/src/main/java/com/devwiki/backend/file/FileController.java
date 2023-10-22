@@ -32,7 +32,7 @@ public class FileController {
     }
 
     @DeleteMapping
-    public void deleteFile(@RequestParam String fileUrl){
+    public void deleteFile(@RequestParam String fileUrl) {
         fileDeleteUseCase.deleteFile(fileUrl);
 
     }
