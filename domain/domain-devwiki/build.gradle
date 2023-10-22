@@ -1,5 +1,9 @@
+plugins {
+    id 'java-library'
+}
+
 dependencies {
-    implementation project(':core-domain')
+    api project(':core-domain')
 }
 
 tasks.named('test') {

@@ -1,7 +1,7 @@
 package com.devwiki.backend.file.business;
 
-import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.model.FileHolder;
+import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.model.StorageType;
 import com.devwiki.backend.file.port.in.FileStoreUseCase;
 import com.devwiki.backend.file.port.out.FileMetaDataRepository;
@@ -28,7 +28,9 @@ public class FileStoreProcessor implements FileStoreUseCase {
     @Transactional
     public void storeFile(StorageType type, FileHolder fileHolder) {
         if (type.equals(StorageType.LOCAL)) {
-            fileValidator.validateLocalStorageFile(fileHolder);
+            if (fileValidator.isOutSideFolderStore(fileHolder)) {
+                throw new FileProcessorException(FileProcessorException.OUTSIDE_STORE, fileHolder.fileName());
+            }
         }
 
         FileRepository fileRepository = fileRepositoryFactory.create(type);

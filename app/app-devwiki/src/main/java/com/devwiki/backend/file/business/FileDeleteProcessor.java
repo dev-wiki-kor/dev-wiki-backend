@@ -1,6 +1,6 @@
 package com.devwiki.backend.file.business;
 
-import com.devwiki.backend.file.exception.FileProcessorException;
+import com.devwiki.backend.file.exception.FileInvalidException;
 import com.devwiki.backend.file.model.FileMetadata;
 import com.devwiki.backend.file.port.in.FileDeleteUseCase;
 import com.devwiki.backend.file.port.out.FileMetaDataRepository;
@@ -9,7 +9,6 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import static com.devwiki.backend.file.exception.FileProcessorException.DELETE;
 
 @RequiredArgsConstructor
 @Service
@@ -25,7 +24,7 @@ public class FileDeleteProcessor implements FileDeleteUseCase {
     @Transactional
     public void deleteFile(String fileUrl) {
         FileMetadata fileMetadata = metaDataRepository.findByUrl(fileUrl)
-                .orElseThrow(() -> new FileProcessorException(DELETE, fileUrl));
+                .orElseThrow(() -> new FileProcessorException(FileProcessorException.DELETE, fileUrl));
 
         FileRepository fileRepository = fileRepositoryFactory.create(fileMetadata.storageType());
 

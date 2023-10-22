@@ -1,6 +1,6 @@
 package com.devwiki.backend.file.business;
 
-import com.devwiki.backend.file.exception.FileProcessorException;
+import com.devwiki.backend.file.exception.FileInvalidException;
 import com.devwiki.backend.file.model.StorageType;
 import com.devwiki.backend.file.port.in.FileLoadUseCase;
 import com.devwiki.backend.file.port.out.FileRepository;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 
-import static com.devwiki.backend.file.exception.FileProcessorException.LOAD;
 
 @RequiredArgsConstructor
 @Service
@@ -28,7 +27,7 @@ public class FileLoadProcessor implements FileLoadUseCase {
         File loadFile = fileRepository.load(fileName);
 
         if (isInValidFile(loadFile)) {
-            throw new FileProcessorException(LOAD, fileName);
+            throw new FileProcessorException(FileProcessorException.LOAD, fileName);
         }
 
         return loadFile;
