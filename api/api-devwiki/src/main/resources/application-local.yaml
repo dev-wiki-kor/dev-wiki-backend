@@ -1,0 +1,5 @@
+file:
+  base-root: local
+  local:
+    base-url: http://localhost:8080/LOCAL
+    store-path: .

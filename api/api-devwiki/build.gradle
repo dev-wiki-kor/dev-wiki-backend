@@ -1,8 +1,10 @@
 dependencies {
     /*implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
     implementation 'org.springframework.boot:spring-boot-starter-security'*/
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     implementation project (':core-web')
     implementation project(':app-devwiki')
+    implementation project(':storage-db-main')
 }
 
 bootJar {

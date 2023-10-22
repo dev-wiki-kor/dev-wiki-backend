@@ -1,0 +1,11 @@
+aws:
+  s3:
+    media:
+      cloud-front-url: test
+      bucket-name: test
+      region: test
+      base-root: .
+
+
+    access-key: test
+    secret-key: test

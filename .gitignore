@@ -1,8 +1,5 @@
 /.gradle/
 /build/
 /.idea/
-/api/*/build/
-/core/*/build/
-/domain/*/build/
-/storage/*/build/
-/app/*/build/
+**/build/
+/local/*

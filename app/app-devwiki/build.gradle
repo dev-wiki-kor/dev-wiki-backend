@@ -4,8 +4,8 @@ plugins {
 
 
 dependencies {
-    implementation project(':domain-devwiki')
-    implementation project(':storage-rdbms')
+    implementation 'jakarta.transaction:jakarta.transaction-api'
+    api project(':domain-devwiki')
 }
 
 tasks.named('test') {

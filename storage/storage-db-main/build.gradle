@@ -1,0 +1,12 @@
+dependencies {
+    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-mysql'
+
+    implementation project(':app-devwiki')
+    implementation project(':core-jpa')
+    runtimeOnly 'com.mysql:mysql-connector-j'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
