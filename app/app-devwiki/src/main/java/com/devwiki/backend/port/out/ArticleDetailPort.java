@@ -1,6 +1,6 @@
-package port.out;
+package com.devwiki.backend.port.out;
 
-import article.articleDetail.ArticleDetail;
+import com.devwiki.backend.article.articleDetail.ArticleDetail;
 
 public interface ArticleDetailPort {
 

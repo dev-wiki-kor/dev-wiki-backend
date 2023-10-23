@@ -1,13 +1,15 @@
-package article.articleDetail;
+package com.devwiki.backend.article.articleDetail;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-import article.ArticleType;
+import com.devwiki.backend.article.ArticleType;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor(staticName = "of")
 public class ArticleDetail {
 
 	ArticleMetadata articleMetadata;
@@ -24,20 +26,22 @@ public class ArticleDetail {
 
 	Long dislikes;
 
+	LocalDateTime editedAt;
+
 
 	@AllArgsConstructor(staticName = "of")
-	static class EditorInfo {
+	public static class EditorInfo {
+
 		String editor;
 
 		String editorGithubUrl;
-
-		LocalDateTime editedAt;
 	}
 
 	@AllArgsConstructor(staticName = "of")
-	static class ArticleMetadata {
+	public static class ArticleMetadata {
 
 		String uploader;
+
 		ArticleType articleType;
 
 		String sourceUrl;

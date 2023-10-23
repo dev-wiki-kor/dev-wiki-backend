@@ -1,18 +1,18 @@
-package service;
+package com.devwiki.backend.service;
 
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import article.articleDetail.ArticleDetail;
+import com.devwiki.backend.port.out.ArticleDetailPort;
+
+import com.devwiki.backend.article.articleDetail.ArticleDetail;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import port.in.articleDetailQuery.ArticleDetailQuery;
-import port.out.ArticleDetailPort;
+import com.devwiki.backend.port.in.articleDetailQuery.ArticleDetailQuery;
 
 @RequiredArgsConstructor
 @Service
 @Transactional
-public class ArticleDetailHandler implements ArticleDetailQuery {
+public class ArticleDetailQueryHandler implements ArticleDetailQuery {
 
 	ArticleDetailPort articleDetailPort;
 

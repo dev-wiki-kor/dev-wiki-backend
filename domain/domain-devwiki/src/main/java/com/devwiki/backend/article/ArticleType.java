@@ -1,4 +1,4 @@
-package article;
+package com.devwiki.backend.article;
 
 import static java.util.stream.Collectors.*;
 
