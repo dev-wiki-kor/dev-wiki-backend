@@ -1,8 +1,9 @@
-package com.devwiki.backend.article;
+package com.devwiki.backend.storage.article;
 
+import com.devwiki.backend.article.ArticleType;
 import com.devwiki.backend.article.articleDetail.ArticleDetail;
-import com.devwiki.backend.article.entity.ArticleMetadata;
-import com.devwiki.backend.article.entity.ArticleVersionContent;
+import com.devwiki.backend.storage.article.entity.ArticleMetadata;
+import com.devwiki.backend.storage.article.entity.ArticleVersionContent;
 
 public class ArticleMapper {
 	public static ArticleDetail toArticleDetail(

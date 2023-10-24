@@ -1,13 +1,13 @@
-package com.devwiki.backend.article;
+package com.devwiki.backend.storage.article;
 
 import org.springframework.stereotype.Component;
 
 import com.devwiki.backend.article.articleDetail.ArticleDetail;
-import com.devwiki.backend.article.entity.ArticleMetadata;
-import com.devwiki.backend.article.entity.ArticleVersionContent;
-import com.devwiki.backend.article.repository.ArticleMetadataRepository;
-import com.devwiki.backend.article.repository.ArticleReactionRepository;
-import com.devwiki.backend.article.repository.ArticleVersionContentRepository;
+import com.devwiki.backend.storage.article.entity.ArticleMetadata;
+import com.devwiki.backend.storage.article.entity.ArticleVersionContent;
+import com.devwiki.backend.storage.article.repository.ArticleMetadataRepository;
+import com.devwiki.backend.storage.article.repository.ArticleReactionRepository;
+import com.devwiki.backend.storage.article.repository.ArticleVersionContentRepository;
 import com.devwiki.backend.port.out.ArticleDetailPort;
 
 import lombok.RequiredArgsConstructor;

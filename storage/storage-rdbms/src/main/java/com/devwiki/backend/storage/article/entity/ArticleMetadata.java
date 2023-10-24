@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.entity;
+package com.devwiki.backend.storage.article.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
