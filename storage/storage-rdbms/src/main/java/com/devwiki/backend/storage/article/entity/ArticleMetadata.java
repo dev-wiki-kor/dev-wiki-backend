@@ -18,7 +18,7 @@ public class ArticleMetadata {
 
 	private String title;
 
-	private List<String> tags;
+	private String tags;
 
 	private String sourceUrl;
 

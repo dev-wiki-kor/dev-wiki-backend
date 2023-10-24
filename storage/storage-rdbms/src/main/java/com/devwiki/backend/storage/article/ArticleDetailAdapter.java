@@ -1,5 +1,6 @@
 package com.devwiki.backend.storage.article;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.devwiki.backend.article.articleDetail.ArticleDetail;
@@ -14,11 +15,12 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
+@Primary
 public class ArticleDetailAdapter implements ArticleDetailPort {
 
-	ArticleMetadataRepository articleMetadataRepository;
-	ArticleReactionRepository articleReactionRepository;
-	ArticleVersionContentRepository articleVersionContentRepository;
+	private final ArticleMetadataRepository articleMetadataRepository;
+	private final ArticleReactionRepository articleReactionRepository;
+	private final ArticleVersionContentRepository articleVersionContentRepository;
 
 	@Override
 	public ArticleDetail query(Long articleId, Long articleVersion) {
@@ -31,8 +33,8 @@ public class ArticleDetailAdapter implements ArticleDetailPort {
 			.orElseThrow(() -> new RuntimeException(
 				"No article version  found on  id : " + articleId + " & version : " + articleVersion));
 
-		int likes = articleReactionRepository.countLikes(articleId, articleVersion);
-		int dislikes = articleReactionRepository.countDislikes(articleId, articleVersion);
+		long likes = articleReactionRepository.countLikes(articleId, articleVersion);
+		long dislikes = articleReactionRepository.countDislikes(articleId, articleVersion);
 
 		return ArticleMapper.toArticleDetail(
 			metadata, content, likes, dislikes

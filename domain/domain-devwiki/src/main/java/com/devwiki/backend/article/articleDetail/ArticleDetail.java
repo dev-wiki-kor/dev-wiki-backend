@@ -28,7 +28,6 @@ public class ArticleDetail {
 
 	LocalDateTime editedAt;
 
-
 	@AllArgsConstructor(staticName = "of")
 	public static class EditorInfo {
 

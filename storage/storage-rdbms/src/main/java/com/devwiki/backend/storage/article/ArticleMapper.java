@@ -1,5 +1,7 @@
 package com.devwiki.backend.storage.article;
 
+import java.util.List;
+
 import com.devwiki.backend.article.ArticleType;
 import com.devwiki.backend.article.articleDetail.ArticleDetail;
 import com.devwiki.backend.storage.article.entity.ArticleMetadata;
@@ -17,7 +19,8 @@ public class ArticleMapper {
 			ArticleType.TRANSLATION,
 			articleMetadata.getSourceUrl(),
 			articleMetadata.getCreatedAt(),
-			articleMetadata.getTags()
+			//articleMetadata.getTags()
+			List.of()
 		);
 
 		// TODO : github url 가져오기

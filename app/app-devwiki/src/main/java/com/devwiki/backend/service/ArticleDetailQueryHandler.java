@@ -14,7 +14,7 @@ import com.devwiki.backend.port.in.articleDetailQuery.ArticleDetailQuery;
 @Transactional
 public class ArticleDetailQueryHandler implements ArticleDetailQuery {
 
-	ArticleDetailPort articleDetailPort;
+	private final ArticleDetailPort articleDetailPort;
 
 	@Override
 	public ArticleDetail query(Long articleId, Long articleVersion) {
