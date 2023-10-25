@@ -2,7 +2,7 @@ dependencies {
     implementation project(':core-web')
     implementation project(':app-devwiki')
     implementation project(':storage-rdbms')
-
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
     implementation project(path: ':domain-devwiki')
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
