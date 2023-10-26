@@ -1,5 +1,7 @@
 package com.devwiki.backend;
 
+import com.devwiki.backend.article.articleDetail.RedisTestDetail;
+import com.devwiki.backend.service.RedisTestQueryHandler;
 import com.devwiki.backend.testservice.RedisTestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class RedisTestController {
 
     private final RedisTestService redisTestService;
+
+    private final RedisTestQueryHandler redisTestQueryHandler;
+
+    @GetMapping("/title")
+    public RedisTestDetail readTitle(@RequestParam String title){
+        return redisTestQueryHandler.query(title);
+    }
 
     @PostMapping("/input")
     public void inputTest(@RequestParam String key,@RequestParam String value) {
