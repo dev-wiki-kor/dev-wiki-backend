@@ -3,5 +3,5 @@ package com.devwiki.backend.article.application.port.in;
 import com.devwiki.backend.article.adapter.out.entity.ArticleMetadata;
 
 public interface ArticleCreateUsecase {
-	ArticleMetadata createArticle(CreateArticleCommand command);
+	void create(CreateArticleCommand command);
 }

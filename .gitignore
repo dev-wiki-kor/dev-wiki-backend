@@ -55,7 +55,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-out/
+
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
@@ -253,4 +253,5 @@ gradle-app.setting
 /.idea/
 /**/build
 
+./out/
 .idea/

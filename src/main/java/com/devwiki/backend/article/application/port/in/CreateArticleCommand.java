@@ -3,23 +3,23 @@ package com.devwiki.backend.article.application.port.in;
 import com.devwiki.backend.article.adapter.in.CreateArticleRequestDto;
 
 public record CreateArticleCommand(Long uploaderId,
-								   String boardType,
+								   String articleType,
 								   String sourceUrl,
 								   String tags,
 								   String title,
 								   String content) {
 
-	public CreateArticleCommand(Long uploaderId, String boardType, String sourceUrl, String tags, String title,
+	public CreateArticleCommand(Long uploaderId, String articleType, String sourceUrl, String tags, String title,
 		String content) {
 		this.uploaderId = uploaderId;
-		this.boardType = boardType;
+		this.articleType = articleType;
 		this.sourceUrl = sourceUrl;
 		this.tags = tags;
 		this.title = title;
 		this.content = content;
 	}
 
-	public CreateArticleCommand of(CreateArticleRequestDto dto) {
+	public static CreateArticleCommand of(CreateArticleRequestDto dto) {
 		return new CreateArticleCommand(
 			dto.userId(),
 			dto.boardType(),
