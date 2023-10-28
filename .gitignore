@@ -252,6 +252,5 @@ gradle-app.setting
 /.gradle/
 /.idea/
 /**/build
-/**/out
 
 .idea/

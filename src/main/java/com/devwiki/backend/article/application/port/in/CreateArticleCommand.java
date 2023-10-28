@@ -2,16 +2,16 @@ package com.devwiki.backend.article.application.port.in;
 
 import com.devwiki.backend.article.adapter.in.CreateArticleRequestDto;
 
-public record CreateArticleCommand(Long userId,
+public record CreateArticleCommand(Long uploaderId,
 								   String boardType,
 								   String sourceUrl,
 								   String tags,
 								   String title,
 								   String content) {
 
-	public CreateArticleCommand(Long userId, String boardType, String sourceUrl, String tags, String title,
+	public CreateArticleCommand(Long uploaderId, String boardType, String sourceUrl, String tags, String title,
 		String content) {
-		this.userId = userId;
+		this.uploaderId = uploaderId;
 		this.boardType = boardType;
 		this.sourceUrl = sourceUrl;
 		this.tags = tags;
