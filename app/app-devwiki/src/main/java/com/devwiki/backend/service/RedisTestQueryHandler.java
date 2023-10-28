@@ -19,4 +19,9 @@ public class RedisTestQueryHandler implements RedisTestQuery {
         return redisTestPort.query(title);
     }
 
+    @Override
+    public RedisTestDetail updateQuery(String title) {
+        return redisTestPort.updateQuery(title);
+    }
+
 }

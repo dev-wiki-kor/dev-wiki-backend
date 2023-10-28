@@ -6,4 +6,6 @@ public interface RedisTestPort {
 
 
     public RedisTestDetail query(String title);
+
+    public RedisTestDetail updateQuery(String title);
 }

@@ -20,6 +20,11 @@ public class RedisTestController {
         return redisTestQueryHandler.query(title);
     }
 
+    @PostMapping("/update")
+    public RedisTestDetail updateTitle(@RequestParam String title){
+        return redisTestQueryHandler.updateQuery(title);
+    }
+
     @PostMapping("/input")
     public void inputTest(@RequestParam String key,@RequestParam String value) {
         redisTestService.setValue(key,value);
