@@ -8,6 +8,10 @@ import com.devwiki.backend.article.domain.article.ArticleType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+/***
+ * 단건 조회에 사용되는 애그리거트
+ */
+
 @Getter
 @AllArgsConstructor(staticName = "of")
 public class ArticleDetail {
