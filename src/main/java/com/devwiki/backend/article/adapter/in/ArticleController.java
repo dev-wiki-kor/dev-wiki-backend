@@ -36,7 +36,14 @@ public class ArticleController {
 	@PostMapping("/create")
 	public ResponseEntity createArticle(@RequestBody CreateArticleRequestDto requestDto) {
 
-		articleCreateUsecase.create(CreateArticleCommand.of(requestDto));
+		articleCreateUsecase.create(CreateArticleCommand.of(
+			requestDto.userId(),
+			requestDto.articleType(),
+			requestDto.sourceUrl(),
+			requestDto.tags(),
+			requestDto.title(),
+			requestDto.content()
+		));
 		return ResponseEntity.ok("created");
 	}
 
