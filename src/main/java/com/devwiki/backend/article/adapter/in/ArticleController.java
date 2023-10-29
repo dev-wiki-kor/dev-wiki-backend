@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devwiki.backend.article.application.port.in.ArticleCreateUsecase;
+import com.devwiki.backend.article.application.port.in.ArticleEditUsecase;
 import com.devwiki.backend.article.application.port.in.CreateArticleCommand;
+import com.devwiki.backend.article.application.port.in.CreateEditCommand;
 import com.devwiki.backend.article.application.service.ArticleDetailQueryHandler;
 import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
 
@@ -24,6 +26,8 @@ public class ArticleController {
 
 	private final ArticleCreateUsecase articleCreateUsecase;
 
+	private final ArticleEditUsecase articleEditUsecase;
+
 	@GetMapping("/detail")
 	public ArticleDetail readArticle(@RequestParam Long articleId, @RequestParam Long version) {
 		return articleDetailQueryHandler.query(articleId, version);
@@ -36,4 +40,17 @@ public class ArticleController {
 		return ResponseEntity.ok("created");
 	}
 
+	@PostMapping("/edit")
+	public ResponseEntity editArticle(@RequestBody EditArticleRequestDto editArticleRequestDto) {
+
+		articleEditUsecase.edit(CreateEditCommand.of(
+			editArticleRequestDto.articleType(),
+			editArticleRequestDto.userId(),
+			editArticleRequestDto.articleId(),
+			editArticleRequestDto.parentVersion(),
+			editArticleRequestDto.content()
+		));
+
+		return ResponseEntity.ok("editted : ");
+	}
 }

@@ -1,5 +1,7 @@
 package com.devwiki.backend.article.domain.article.articleModify;
 
+import static com.devwiki.backend.article.domain.article.articleModify.FieldCheck.*;
+
 import com.devwiki.backend.article.domain.article.ArticleType;
 
 import lombok.AccessLevel;
@@ -54,11 +56,4 @@ public class ArticleCreation {
 			"source url should be more than 0 letters and less than 2000 letters"
 		);
 	}
-
-	public void checkLength(String phrase, int maxLength, String message) {
-		if (phrase == null || phrase.isBlank() || phrase.length() > maxLength)
-			throw new RuntimeException(message);
-
-	}
-
 }
