@@ -1,6 +1,5 @@
 package com.devwiki.backend.article.application.port.in;
 
-import com.devwiki.backend.article.adapter.in.CreateArticleRequestDto;
 
 public record CreateArticleCommand(Long uploaderId,
 								   String articleType,
@@ -19,14 +18,10 @@ public record CreateArticleCommand(Long uploaderId,
 		this.content = content;
 	}
 
-	public static CreateArticleCommand of(CreateArticleRequestDto dto) {
-		return new CreateArticleCommand(
-			dto.userId(),
-			dto.boardType(),
-			dto.sourceUrl(),
-			dto.tags(),
-			dto.title(),
-			dto.content()
-		);
+	public static CreateArticleCommand of(Long uploaderId, String articleType, String sourceUrl, String tags,
+		String title,
+		String content) {
+		return new CreateArticleCommand(uploaderId, articleType, sourceUrl, tags, title, content);
 	}
+
 }
