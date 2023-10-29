@@ -1,8 +1,11 @@
 package com.devwiki.backend.article.adapter.out;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.devwiki.backend.article.adapter.out.entity.ArticleMetadata;
+import com.devwiki.backend.article.adapter.out.entity.ArticleTag;
 import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
 import com.devwiki.backend.article.domain.article.ArticleType;
 import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
@@ -19,8 +22,7 @@ public class ArticleMapper {
 			ArticleType.TRANSLATION,
 			articleMetadata.getSourceUrl(),
 			articleMetadata.getCreatedAt(),
-			//articleMetadata.getTags()
-			List.of()
+			articleMetadata.getTags().stream().map(ArticleTag::getTag).collect(Collectors.toSet())
 		);
 
 		// TODO : github url 가져오기

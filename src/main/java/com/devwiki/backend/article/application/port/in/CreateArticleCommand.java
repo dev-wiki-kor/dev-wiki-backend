@@ -1,14 +1,15 @@
 package com.devwiki.backend.article.application.port.in;
 
+import java.util.Set;
 
 public record CreateArticleCommand(Long uploaderId,
 								   String articleType,
 								   String sourceUrl,
-								   String tags,
+								   Set tags,
 								   String title,
 								   String content) {
 
-	public CreateArticleCommand(Long uploaderId, String articleType, String sourceUrl, String tags, String title,
+	public CreateArticleCommand(Long uploaderId, String articleType, String sourceUrl, Set tags, String title,
 		String content) {
 		this.uploaderId = uploaderId;
 		this.articleType = articleType;
@@ -18,7 +19,7 @@ public record CreateArticleCommand(Long uploaderId,
 		this.content = content;
 	}
 
-	public static CreateArticleCommand of(Long uploaderId, String articleType, String sourceUrl, String tags,
+	public static CreateArticleCommand of(Long uploaderId, String articleType, String sourceUrl, Set tags,
 		String title,
 		String content) {
 		return new CreateArticleCommand(uploaderId, articleType, sourceUrl, tags, title, content);

@@ -2,6 +2,7 @@ package com.devwiki.backend.article.domain.article.articleDetail;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 import com.devwiki.backend.article.domain.article.ArticleType;
 
@@ -51,6 +52,6 @@ public class ArticleDetail {
 
 		LocalDateTime uploadedAt;
 
-		List<String> tags;
+		Set<String> tags;
 	}
 }

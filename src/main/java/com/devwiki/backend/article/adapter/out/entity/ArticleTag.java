@@ -16,4 +16,12 @@ public class ArticleTag {
 	private Long id;
 
 	private String tag;
+
+	private ArticleTag(String tag) {
+		this.tag = tag;
+	}
+
+	public static ArticleTag of(String tag) {
+		return new ArticleTag(tag);
+	}
 }
