@@ -7,11 +7,16 @@ import com.devwiki.backend.common.jpa.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+<<<<<<< HEAD
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Generated;
+=======
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+>>>>>>> develop
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,6 +31,7 @@ public class ArticleVersionContent extends BaseEntity {
 	@Id
 	@Column(name = "article_version_content_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 
 	private Long articleId;
@@ -37,6 +43,7 @@ public class ArticleVersionContent extends BaseEntity {
 	private String content;
 
 	private boolean deleted = Boolean.FALSE; // 삭제 여부 기본값 false
+
 
 	private ArticleVersionContent(Long articleId, Long version, Long editorId, String content) {
 		this.articleId = articleId;
