@@ -7,16 +7,12 @@ import com.devwiki.backend.common.jpa.BaseEntity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-<<<<<<< HEAD
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Generated;
-=======
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
->>>>>>> develop
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
