@@ -1,6 +1,8 @@
 package com.devwiki.backend.article.adapter.out.entity;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -13,8 +15,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,12 +35,13 @@ public class ArticleMetadata extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-
 	private Long uploaderId;
 
 	private String title;
 
-	private String tags;
+	@OneToMany
+	@JoinColumn(name = "article_metadata_id")
+	private Set<ArticleTag> tags = new HashSet<>();
 
 	private String sourceUrl;
 
