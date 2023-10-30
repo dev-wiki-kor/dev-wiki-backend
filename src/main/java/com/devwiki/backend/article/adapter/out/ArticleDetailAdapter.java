@@ -33,8 +33,8 @@ public class ArticleDetailAdapter implements ArticleDetailPort {
 			.orElseThrow(() -> new RuntimeException(
 				"No article version  found on  id : " + articleId + " & version : " + articleVersion));
 
-		long likes = articleReactionRepository.countLikes(articleId, articleVersion);
-		long dislikes = articleReactionRepository.countDislikes(articleId, articleVersion);
+		long likes = articleReactionRepository.countLikes(articleId);
+		long dislikes = articleReactionRepository.countDislikes(articleId);
 
 		return ArticleMapper.toArticleDetail(
 			metadata, content, likes, dislikes

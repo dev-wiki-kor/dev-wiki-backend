@@ -34,6 +34,7 @@ public class ArticleDetail {
 	LocalDateTime editedAt;
 
 	@AllArgsConstructor(staticName = "of")
+	@Getter
 	public static class EditorInfo {
 
 		String editor;
@@ -42,6 +43,7 @@ public class ArticleDetail {
 	}
 
 	@AllArgsConstructor(staticName = "of")
+	@Getter
 	public static class ArticleMetadata {
 
 		String uploader;
