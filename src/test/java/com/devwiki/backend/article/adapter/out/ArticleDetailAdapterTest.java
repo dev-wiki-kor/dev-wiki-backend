@@ -28,7 +28,7 @@ class ArticleDetailAdapterTest {
 	}
 
 	@Test
-	@Sql(scripts={"classpath:ArticleDetailAdapterTest.sql"})
+	@Sql(scripts={"classpath:ArticleSampleData.sql"})
 	void 조회_성공() {
 
 		var articleDetail = articleDetailAdapter.query(1L, 1L);

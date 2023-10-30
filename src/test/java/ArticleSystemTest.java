@@ -28,7 +28,7 @@ public class ArticleSystemTest {
 	ObjectMapper objectMapper;
 
 	@Test
-	@Sql(scripts = {"classpath:ArticleDetailAdapterTest.sql"})
+	@Sql(scripts = {"classpath:ArticleSampleData.sql"})
 	void 통합__문서_조회_성공() {
 
 		ResponseEntity response = whenQueryDocument(1L, 1L);

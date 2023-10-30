@@ -14,7 +14,7 @@ public interface ArticleModifyHistoryRepository extends JpaRepository<ArticleMod
 		+ "FROM ArticleModifyHistory a\n"
 		+ "WHERE a.articleId = :articleId\n"
 		+ "AND a.userId = :userId\n"
-		+ "AND a.createdAt = :since\n"
+		+ "AND a.createdAt >= :since\n"
 		+ "AND a.modifyType = 'EDIT'\n")
 	long countEditSince(
 		@Param("userId") Long userId,
@@ -25,7 +25,7 @@ public interface ArticleModifyHistoryRepository extends JpaRepository<ArticleMod
 	@Query("SELECT COUNT(a)\n"
 		+ "FROM ArticleModifyHistory a\n"
 		+ "WHERE a.userId = :userId\n"
-		+ "AND a.createdAt = :since\n"
+		+ "AND a.createdAt >= :since\n"
 		+ "AND a.modifyType = 'CREATE'\n")
 	long countCreateSince(
 		@Param("userId") Long userId,
