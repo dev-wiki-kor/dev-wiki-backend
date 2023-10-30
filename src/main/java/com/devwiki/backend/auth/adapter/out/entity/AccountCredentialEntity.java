@@ -2,10 +2,13 @@ package com.devwiki.backend.auth.adapter.out.entity;
 
 import com.devwiki.backend.auth.domain.AccountType;
 import jakarta.persistence.*;
+import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "account_credential")
 @NoArgsConstructor
+@Getter
 @Entity
 public class AccountCredentialEntity {
     @Id
@@ -21,4 +24,11 @@ public class AccountCredentialEntity {
     private AccountEntity account;
 
     private String secret;
+
+    @Builder
+    public AccountCredentialEntity(AccountType type, AccountEntity account, String secret) {
+        this.accountType = type;
+        this.account = account;
+        this.secret = secret;
+    }
 }

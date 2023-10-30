@@ -1,8 +1,9 @@
 package com.devwiki.backend.common.security.auth.oauth;
 
-import com.devwiki.backend.auth.application.port.out.QueryAccountCredentialPort;
-import com.devwiki.backend.auth.application.port.out.RegisterAccountPort;
-import com.devwiki.backend.auth.domain.*;
+import com.devwiki.backend.auth.application.port.in.LoginUseCase;
+import com.devwiki.backend.auth.domain.Account;
+import com.devwiki.backend.auth.domain.AccountCredential;
+import com.devwiki.backend.auth.domain.AccountRole;
 import com.devwiki.backend.common.security.auth.oauth.model.OauthAuthenticateToken;
 import com.devwiki.backend.common.security.auth.oauth.model.OauthInfo;
 import lombok.RequiredArgsConstructor;
@@ -16,14 +17,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
 public class OauthAuthenticationProvider implements AuthenticationProvider {
     private final OauthAccessTokenResolverFactory factory;
-    private final QueryAccountCredentialPort queryAccountCredentialPort;
-    private final RegisterAccountPort registerAccountPort;
+    private final LoginUseCase loginUseCase;
+
+    private final static String ROLE_PREFIX = "ROLE_";
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
@@ -31,35 +32,19 @@ public class OauthAuthenticationProvider implements AuthenticationProvider {
         OauthAccessTokenResolver resolver = factory.getResolver(oauthAuthenticateToken.getOauthType());
         OauthInfo oauthInfo = resolver.resolve(oauthAuthenticateToken.getAuthorizationCode());
 
-        AccountCredentialQueryCondition queryCondition = new AccountCredentialQueryCondition(
-                AccountType.SOCIAL,
-                oauthInfo.uniqueId()
-        );
-        Optional<AccountCredential> accountCredential = queryAccountCredentialPort.query(queryCondition);
-        Account account;
+        AccountCredential accountCredential = loginUseCase.socialLogin(oauthInfo);
 
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-
-        if (accountCredential.isEmpty()) {
-            account = Account.builder()
-                    .email(oauthInfo.email())
-                    .nickname(oauthInfo.nickname())
-                    .profileImageUrl(oauthInfo.profileUrl())
-                    .pageUrl(oauthInfo.pageUrl())
-                    .accountRole(AccountRole.USER)
-                    .build();
-
-            registerAccountPort.register(account);
-        } else {
-            account = accountCredential.get()
-                    .getAccount();
-        }
-
-        grantedAuthorities.add(new SimpleGrantedAuthority(account.getAccountRole().name()));
+        Account account = accountCredential.getAccount();
+        grantedAuthorities.add(convertAuthority(account.getAccountRole()));
 
         return new UsernamePasswordAuthenticationToken(
-                oauthInfo.nickname(), oauthInfo.uniqueId(), grantedAuthorities
+                account.getId(), accountCredential.getSecret(), grantedAuthorities
         );
+    }
+
+    private GrantedAuthority convertAuthority(AccountRole role) {
+        return new SimpleGrantedAuthority(ROLE_PREFIX + role.name());
     }
 
     @Override

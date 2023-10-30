@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 public class Account {
+    private Long id;
 
     private String nickname;
 
@@ -19,7 +20,8 @@ public class Account {
     private AccountRole accountRole;
 
     @Builder
-    public Account(String nickname, String email, String profileImageUrl, String pageUrl, AccountRole accountRole) {
+    public Account(Long id,String nickname, String email, String profileImageUrl, String pageUrl, AccountRole accountRole) {
+        this.id = id;
         this.nickname = nickname;
         this.email = email;
         this.profileImageUrl = profileImageUrl;

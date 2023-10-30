@@ -6,4 +6,8 @@ public record GithubAuthorization(
         @JsonProperty("access_token")
         String accessToken
 ) {
+        @Override
+        public String accessToken() {
+                return "Bearer "+accessToken;
+        }
 }

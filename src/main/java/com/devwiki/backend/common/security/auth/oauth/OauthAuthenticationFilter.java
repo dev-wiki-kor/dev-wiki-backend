@@ -5,6 +5,7 @@ import com.devwiki.backend.common.security.auth.oauth.model.OauthType;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.ProviderManager;
@@ -20,11 +21,11 @@ import java.util.Arrays;
 public class OauthAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
     private static final String MATCH_URL_PREFIX = "/login/oauth/";
 
-    public OauthAuthenticationFilter(AuthenticationSuccessHandler authenticationSuccessHandler,
-                                     AuthenticationProvider... authenticationProvider) {
-        super(new AntPathRequestMatcher(MATCH_URL_PREFIX + "*"));
+    public OauthAuthenticationFilter(AuthenticationSuccessHandler successHandler
+            , AuthenticationProvider... authenticationProvider) {
+        super(new AntPathRequestMatcher(MATCH_URL_PREFIX + "*", HttpMethod.POST.name()));
+        this.setAuthenticationSuccessHandler(successHandler);
         this.setAuthenticationManager(new ProviderManager(authenticationProvider));
-        this.setAuthenticationSuccessHandler(authenticationSuccessHandler);
     }
 
     @Override

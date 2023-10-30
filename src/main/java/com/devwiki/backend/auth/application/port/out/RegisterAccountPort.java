@@ -1,7 +1,7 @@
 package com.devwiki.backend.auth.application.port.out;
 
-import com.devwiki.backend.auth.domain.Account;
+import com.devwiki.backend.auth.domain.AccountCredential;
 
 public interface RegisterAccountPort {
-    long register(Account account);
+    long register(AccountCredential accountCredential);
 }
