@@ -1,5 +1,6 @@
 package com.devwiki.backend.common.mapper;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,6 +16,7 @@ public class ObjectMapperConfig {
 	public ObjectMapper objectMapper() {
 		ObjectMapper objectMapper = new ObjectMapper();
 		objectMapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		objectMapper.registerModule(new JavaTimeModule());
 		return objectMapper;
 	}
