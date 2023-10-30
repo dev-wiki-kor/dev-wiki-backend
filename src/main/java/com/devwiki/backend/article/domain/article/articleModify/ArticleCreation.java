@@ -2,6 +2,8 @@ package com.devwiki.backend.article.domain.article.articleModify;
 
 import static com.devwiki.backend.article.domain.article.articleModify.FieldCheck.*;
 
+import java.util.Set;
+
 import com.devwiki.backend.article.domain.article.ArticleType;
 
 import lombok.AccessLevel;
@@ -21,7 +23,7 @@ public class ArticleCreation {
 	ArticleType articleType;
 	Long uploaderId;
 	String sourceUrl;
-	String tags;
+	Set<String> tags;
 	String title;
 	String content;
 
@@ -29,7 +31,7 @@ public class ArticleCreation {
 		String articleType,
 		Long uploaderId,
 		String sourceUrl,
-		String tags,
+		Set<String> tags,
 		String title,
 		String content) {
 
@@ -46,14 +48,16 @@ public class ArticleCreation {
 		checkLength(content, 100000,
 			"content should be more than 0 letters and less than 50000 letters");
 
-		//	 TODO  : tag리스트로
-		// tag size
-		// each tags
-		checkLength(title, 500,
-			"title should be more than 0 letters and less than 500 letters");
-
 		checkLength(sourceUrl, 2000,
 			"source url should be more than 0 letters and less than 2000 letters"
 		);
+
+		if (tags.size() > 5)
+			throw new RuntimeException("tag list should be less than 6");
+
+		tags.stream().forEach(
+			e -> checkLength(e, 20, "tag should be more than 0 letters and less than 20 letters")
+		);
+
 	}
 }

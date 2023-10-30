@@ -9,6 +9,7 @@ public record EditArticleRequestDto(
 	@NonNull Long articleId,
 	@NonNull Long parentVersion,
 	@NonNull String content
+
 ) {
 
 }
