@@ -8,39 +8,39 @@ import com.devwiki.backend.auth.domain.AccountCredential;
 public class AccountMapper {
 
     public static AccountEntity toEntity(Account account) {
-        return AccountEntity.builder()
-                .email(account.getEmail())
-                .nickname(account.getNickname())
-                .profileImageUrl(account.getProfileImageUrl())
-                .pageUrl(account.getPageUrl())
-                .role(account.getAccountRole())
-                .build();
+        return AccountEntity.of(
+                account.getEmail(),
+                account.getNickname(),
+                account.getProfileImageUrl(),
+                account.getPageUrl(),
+                account.getAccountRole()
+        );
     }
 
     public static Account toDomain(AccountEntity account) {
-        return Account.builder()
-                .id(account.getId())
-                .email(account.getEmail())
-                .nickname(account.getNickname())
-                .profileImageUrl(account.getProfileImageUrl())
-                .pageUrl(account.getPageUrl())
-                .accountRole(account.getRole())
-                .build();
+        return Account.of(
+                account.getId(),
+                account.getEmail(),
+                account.getNickname(),
+                account.getProfileImageUrl(),
+                account.getPageUrl(),
+                account.getRole()
+        );
     }
 
     public static AccountCredential toDomain(AccountCredentialEntity accountCredential) {
-        return AccountCredential.builder()
-                .type(accountCredential.getAccountType())
-                .secret(accountCredential.getSecret())
-                .account(toDomain(accountCredential.getAccount()))
-                .build();
+        return AccountCredential.of(
+                accountCredential.getAccountType(),
+                accountCredential.getSecret(),
+                toDomain(accountCredential.getAccount())
+        );
     }
 
     public static AccountCredentialEntity toEntity(AccountCredential accountCredential, AccountEntity account) {
-        return AccountCredentialEntity.builder()
-                .type(accountCredential.getAccountType())
-                .account(account)
-                .secret(accountCredential.getSecret())
-                .build();
+        return AccountCredentialEntity.of(
+                accountCredential.getAccountType(),
+                account,
+                accountCredential.getSecret()
+        );
     }
 }

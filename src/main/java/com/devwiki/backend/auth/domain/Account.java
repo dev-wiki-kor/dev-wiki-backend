@@ -1,9 +1,10 @@
 package com.devwiki.backend.auth.domain;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+@AllArgsConstructor(staticName = "of")
 @NoArgsConstructor
 @Getter
 public class Account {
@@ -19,13 +20,21 @@ public class Account {
 
     private AccountRole accountRole;
 
-    @Builder
-    public Account(Long id,String nickname, String email, String profileImageUrl, String pageUrl, AccountRole accountRole) {
-        this.id = id;
+    public Account(String nickname, String email, String profileImageUrl, String pageUrl, AccountRole accountRole) {
         this.nickname = nickname;
         this.email = email;
         this.profileImageUrl = profileImageUrl;
         this.pageUrl = pageUrl;
         this.accountRole = accountRole;
+    }
+
+    public static Account of(String nickname, String email, String profileImageUrl, String pageUrl, AccountRole accountRole) {
+        return new Account(
+                nickname,
+                email,
+                profileImageUrl,
+                pageUrl,
+                accountRole
+        );
     }
 }

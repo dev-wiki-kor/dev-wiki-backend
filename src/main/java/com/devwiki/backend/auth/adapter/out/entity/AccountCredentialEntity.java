@@ -25,10 +25,17 @@ public class AccountCredentialEntity {
 
     private String secret;
 
-    @Builder
     public AccountCredentialEntity(AccountType type, AccountEntity account, String secret) {
         this.accountType = type;
         this.account = account;
         this.secret = secret;
+    }
+
+    public static AccountCredentialEntity of(AccountType type, AccountEntity account, String secret){
+        return new AccountCredentialEntity(
+                type,
+                account,
+                secret
+        );
     }
 }

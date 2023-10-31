@@ -1,8 +1,9 @@
 package com.devwiki.backend.auth.domain;
 
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+@AllArgsConstructor(staticName = "of")
 @Getter
 public class AccountCredential {
     private AccountType accountType;
@@ -10,11 +11,4 @@ public class AccountCredential {
     private String secret;
 
     private Account account;
-
-    @Builder
-    public AccountCredential(AccountType type, String secret, Account account){
-        this.accountType = type;
-        this.secret = secret;
-        this.account = account;
-    }
 }

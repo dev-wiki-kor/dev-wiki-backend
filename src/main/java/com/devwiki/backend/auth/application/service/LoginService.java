@@ -25,19 +25,19 @@ public class LoginService implements LoginUseCase {
     public AccountCredential socialLogin(OauthInfo oauthInfo) {
         return queryAccountCredentialPort.query(AccountType.SOCIAL, oauthInfo.uniqueId())
                 .orElseGet(() -> {
-                    Account account = Account.builder()
-                            .email(oauthInfo.email())
-                            .nickname(oauthInfo.nickname())
-                            .profileImageUrl(oauthInfo.profileUrl())
-                            .pageUrl(oauthInfo.pageUrl())
-                            .accountRole(AccountRole.USER)
-                            .build();
+                    Account account = Account.of(
+                            oauthInfo.email(),
+                            oauthInfo.nickname(),
+                            oauthInfo.profileUrl(),
+                            oauthInfo.pageUrl(),
+                            AccountRole.USER
+                    );
 
-                    AccountCredential accountCredential = AccountCredential.builder()
-                            .account(account)
-                            .secret(oauthInfo.uniqueId())
-                            .type(AccountType.SOCIAL)
-                            .build();
+                    AccountCredential accountCredential = AccountCredential.of(
+                            AccountType.SOCIAL,
+                            oauthInfo.uniqueId(),
+                            account
+                    );
 
                     registerAccountService.register(accountCredential);
                     return accountCredential;
