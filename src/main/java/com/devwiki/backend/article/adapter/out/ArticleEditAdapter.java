@@ -1,7 +1,10 @@
 package com.devwiki.backend.article.adapter.out;
 
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
+import com.devwiki.backend.aop.lock.DistributedLock;
 import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
 import com.devwiki.backend.article.adapter.out.repository.ArticleVersionContentRepository;
 import com.devwiki.backend.article.application.port.out.ArticleEditPort;
@@ -16,14 +19,14 @@ public class ArticleEditAdapter implements ArticleEditPort {
 
 	private final ArticleVersionContentRepository articleVersionContentRepository;
 
+	private final RedissonClient redissonClient;
+
 	@Override
+	@DistributedLock(key = "#articleEdit.getArticleType.name().concat('_').concat(#articleEdit.getArticleId())")
 	public GeneratedVersion editArticle(ArticleEdit articleEdit) {
 
-		Long newVersion = articleVersionContentRepository.getLastVersion(articleEdit.getArticleId())
+		var newVersion = articleVersionContentRepository.getLastVersion(articleEdit.getArticleId())
 			.orElseThrow(() -> new RuntimeException("no article metadata exist ")) + 1;
-
-		var newContent = ArticleVersionContent.of(articleEdit.getArticleId(), 0L, articleEdit.getEditorId(),
-			articleEdit.getContent());
 
 		articleVersionContentRepository.save(ArticleVersionContent.of(
 			articleEdit.getArticleId(),
