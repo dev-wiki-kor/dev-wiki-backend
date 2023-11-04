@@ -22,11 +22,11 @@ public class ArticleEditAdapter implements ArticleEditPort {
 	private final RedissonClient redissonClient;
 
 	@Override
-	@DistributedLock(key = "#articleEdit.getArticleType.concat(#articleEdit.getArticleId())")
+	@DistributedLock(key = "#articleEdit.getArticleType.name().concat('_').concat(#articleEdit.getArticleId())")
 	public GeneratedVersion editArticle(ArticleEdit articleEdit) {
 
 		var newVersion = articleVersionContentRepository.getLastVersion(articleEdit.getArticleId())
-			.orElseThrow(() -> new RuntimeException("no article metadata exist "));
+			.orElseThrow(() -> new RuntimeException("no article metadata exist ")) + 1;
 
 		articleVersionContentRepository.save(ArticleVersionContent.of(
 			articleEdit.getArticleId(),
