@@ -11,14 +11,12 @@ public interface ArticleReactionRepository extends JpaRepository<ArticleReaction
 	@Query("SELECT COUNT(a)\n"
 		+ "FROM ArticleReaction a\n"
 		+ "WHERE a.articleId = :articleId\n"
-		+ "AND a.accountId = :accountId\n"
 		+ "AND a.reaction = 'LIKE'\n")
-	long countLikes(@Param("articleId") Long accountId, @Param("accountId") Long ArticleId);
+	long countLikes(@Param("articleId") Long articleId);
 
 	@Query("SELECT COUNT(a)\n"
 		+ "FROM ArticleReaction a\n"
 		+ "WHERE a.articleId = :articleId\n"
-		+ "AND a.accountId = :accountId\n"
 		+ "AND a.reaction = 'DISLIKE'\n")
-	long countDislikes(@Param("articleId") Long accountId, @Param("accountId") Long ArticleId);
+	long countDislikes(@Param("articleId") Long articleId);
 }

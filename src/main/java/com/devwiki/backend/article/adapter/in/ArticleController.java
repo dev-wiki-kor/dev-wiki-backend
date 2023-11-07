@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devwiki.backend.article.application.port.in.ArticleCreateUsecase;
+import com.devwiki.backend.article.application.port.in.ArticleDetailQuery;
 import com.devwiki.backend.article.application.port.in.ArticleEditUsecase;
 import com.devwiki.backend.article.application.port.in.CreateArticleCommand;
 import com.devwiki.backend.article.application.port.in.CreateEditCommand;
@@ -22,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/article")
 public class ArticleController {
 
-	private final ArticleDetailQueryHandler articleDetailQueryHandler;
+	private final ArticleDetailQuery articleDetailQuery;
 
 	private final ArticleCreateUsecase articleCreateUsecase;
 
@@ -30,7 +31,7 @@ public class ArticleController {
 
 	@GetMapping("/detail")
 	public ArticleDetail readArticle(@RequestParam Long articleId, @RequestParam Long version) {
-		return articleDetailQueryHandler.query(articleId, version);
+		return articleDetailQuery.query(articleId, version);
 	}
 
 	@PostMapping("/create")

@@ -38,6 +38,7 @@ public class ArticleModifyHistory extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	ModifyType modifyType;
 
+
 	private ArticleModifyHistory(Long userId, Long articleId, Long versionId, ModifyType modifyType) {
 		this.userId = userId;
 		this.articleId = articleId;
