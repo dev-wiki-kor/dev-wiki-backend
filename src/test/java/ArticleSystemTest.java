@@ -1,7 +1,4 @@
 import static org.assertj.core.api.BDDAssertions.*;
-import static org.springframework.test.util.AssertionErrors.*;
-
-import java.net.http.HttpRequest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.jdbc.Sql;
 
 import com.devwiki.backend.App;
-import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = App.class)
@@ -28,7 +24,7 @@ public class ArticleSystemTest {
 	ObjectMapper objectMapper;
 
 	@Test
-	@Sql(scripts = {"classpath:ArticleDetailAdapterTest.sql"})
+	@Sql(scripts = {"classpath:ArticleTestSample.sql"})
 	void 통합__문서_조회_성공() {
 
 		ResponseEntity response = whenQueryDocument(1L, 1L);

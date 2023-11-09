@@ -1,6 +1,5 @@
 package com.devwiki.backend.article.adapter.out;
 
-import static org.assertj.core.api.FactoryBasedNavigableListAssert.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -28,7 +27,7 @@ class ArticleDetailAdapterTest {
 	}
 
 	@Test
-	@Sql(scripts={"classpath:ArticleDetailAdapterTest.sql"})
+	@Sql(scripts={"classpath:ArticleTestSample.sql"})
 	void 조회_성공() {
 
 		var articleDetail = articleDetailAdapter.query(1L, 1L);
