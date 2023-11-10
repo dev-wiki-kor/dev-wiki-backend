@@ -16,7 +16,7 @@ class ArticleReactionRepositoryTest {
 	ArticleReactionRepository articleReactionRepository;
 
 	@Test
-	@Sql(scripts = {"classpath:ArticleDetailAdapterTest.sql"})
+	@Sql(scripts = {"classpath:ArticleTestSample.sql"})
 	void 리액션_jpql_정상적으로_도는지_체크() {
 		assertEquals(1, articleReactionRepository.countLikes(1L));
 		assertEquals(2, articleReactionRepository.countDislikes(1L));

@@ -19,7 +19,6 @@ public class ArticleEditAdapter implements ArticleEditPort {
 
 	private final ArticleVersionContentRepository articleVersionContentRepository;
 
-	private final RedissonClient redissonClient;
 
 	@Override
 	@DistributedLock(key = "#articleEdit.getArticleType.name().concat('_').concat(#articleEdit.getArticleId())")
