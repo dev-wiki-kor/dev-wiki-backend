@@ -31,7 +31,7 @@ import java.util.List;
 public class SecurityConfig {
 
    // private final OauthAuthenticationProvider provider;
-    private final AuthSuccessHandler authSuccessHandler;
+   // private final AuthSuccessHandler authSuccessHandler;
 
 
     @Value("${cors.allow.frontend}")
@@ -43,12 +43,11 @@ public class SecurityConfig {
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(request -> request
                         .requestMatchers("/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole("ADMIN")
-                        .anyRequest().authenticated())
-                .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        .anyRequest().authenticated());
+
              //   .addFilterBefore(new OauthAuthenticationFilter(authSuccessHandler, provider), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new SessionAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
-        http.headers(h -> h.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
+             //  .addFilterBefore(new SessionAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+       // http.headers(h -> h.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         return http.build();
     }
 
