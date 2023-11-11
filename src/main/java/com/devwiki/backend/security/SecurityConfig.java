@@ -1,10 +1,13 @@
-package com.devwiki.backend.common.security;
+package com.devwiki.backend.security;
 
-import com.devwiki.backend.common.security.auth.AuthSuccessHandler;
-import com.devwiki.backend.common.security.auth.SessionAuthenticationFilter;
-import com.devwiki.backend.common.security.auth.oauth.OauthAuthenticationFilter;
-import com.devwiki.backend.common.security.auth.oauth.OauthAuthenticationProvider;
+import com.devwiki.backend.security.auth.AuthSuccessHandler;
+import com.devwiki.backend.security.auth.SessionAuthenticationFilter;
+
+
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -24,21 +27,26 @@ import java.util.List;
 @RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
+@Slf4j
 public class SecurityConfig {
 
-    private final OauthAuthenticationProvider provider;
+   // private final OauthAuthenticationProvider provider;
     private final AuthSuccessHandler authSuccessHandler;
+
+
+    @Value("${cors.allow.frontend}")
+    private String FRONTEND_URI;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/login/**").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .addFilterBefore(new OauthAuthenticationFilter(authSuccessHandler, provider), UsernamePasswordAuthenticationFilter.class)
+             //   .addFilterBefore(new OauthAuthenticationFilter(authSuccessHandler, provider), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new SessionAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         http.headers(h -> h.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
         return http.build();
@@ -47,7 +55,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOriginPattern("http://localhost:3000");
+        configuration.addAllowedOriginPattern(FRONTEND_URI);
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(true);
         configuration.setAllowedMethods(List.of(

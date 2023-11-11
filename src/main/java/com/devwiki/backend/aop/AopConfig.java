@@ -1,4 +1,4 @@
-package com.devwiki.backend.common.aop;
+package com.devwiki.backend.aop;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;

@@ -1,4 +1,4 @@
-package com.devwiki.backend.common.security.auth;
+package com.devwiki.backend.security.auth;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
