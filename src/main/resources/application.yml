@@ -1,6 +1,5 @@
 spring:
-  profiles:
-    include: oauth
+
   jpa:
     open-in-view: false
     properties:
@@ -9,11 +8,21 @@ spring:
       hibernate.format_sql: true
     hibernate:
       ddl-auto: create-drop
+
   datasource:
     url: jdbc:mysql://localhost:3306/dev_wiki?serverTimezone=UTC&characterEncoding=UTF-8
     username: devwiki
     password: devwiki
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   redis:
     port: 6379
     host: localhost
+
+cors:
+  allow:
+    frontend: http://localhost:3001
+
+
+
+
