@@ -1,13 +1,11 @@
 package com.devwiki.backend.article.adapter.out;
 
-import org.redisson.api.RLock;
-import org.redisson.api.RedissonClient;
 import org.springframework.stereotype.Component;
 
 import com.devwiki.backend.aop.lock.DistributedLock;
 import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
 import com.devwiki.backend.article.adapter.out.repository.ArticleVersionContentRepository;
-import com.devwiki.backend.article.application.port.out.ArticleEditPort;
+import com.devwiki.backend.article.application.port.out.article.ArticleEditPort;
 import com.devwiki.backend.article.application.port.out.GeneratedVersion;
 import com.devwiki.backend.article.domain.article.articleModify.ArticleEdit;
 

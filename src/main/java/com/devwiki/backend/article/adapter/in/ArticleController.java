@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.devwiki.backend.article.application.port.in.ArticleCreateUsecase;
-import com.devwiki.backend.article.application.port.in.ArticleDetailQuery;
-import com.devwiki.backend.article.application.port.in.ArticleEditUsecase;
+import com.devwiki.backend.article.application.port.in.article.ArticleCreateUsecase;
+import com.devwiki.backend.article.application.port.in.article.ArticleDetailQuery;
+import com.devwiki.backend.article.application.port.in.article.ArticleEditUsecase;
 import com.devwiki.backend.article.application.port.in.CreateArticleCommand;
 import com.devwiki.backend.article.application.port.in.CreateEditCommand;
-import com.devwiki.backend.article.application.service.ArticleDetailQueryHandler;
 import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
 
 import lombok.RequiredArgsConstructor;

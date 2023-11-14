@@ -2,9 +2,9 @@ package com.devwiki.backend.article.application.service;
 
 import org.springframework.stereotype.Service;
 
-import com.devwiki.backend.article.application.port.in.ArticleCreateUsecase;
+import com.devwiki.backend.article.application.port.in.article.ArticleCreateUsecase;
 import com.devwiki.backend.article.application.port.in.CreateArticleCommand;
-import com.devwiki.backend.article.application.port.out.ArticleCreatePort;
+import com.devwiki.backend.article.application.port.out.article.ArticleCreatePort;
 import com.devwiki.backend.article.application.port.out.CountHistoryPort;
 import com.devwiki.backend.article.domain.article.articleModify.ArticleCreation;
 

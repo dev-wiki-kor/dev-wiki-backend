@@ -8,7 +8,7 @@ import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
 import com.devwiki.backend.article.adapter.out.repository.ArticleMetadataRepository;
 import com.devwiki.backend.article.adapter.out.repository.ArticleModifyHistoryRepository;
 import com.devwiki.backend.article.adapter.out.repository.ArticleVersionContentRepository;
-import com.devwiki.backend.article.application.port.out.ArticleCreatePort;
+import com.devwiki.backend.article.application.port.out.article.ArticleCreatePort;
 import com.devwiki.backend.article.domain.article.articleModify.ArticleCreation;
 
 import lombok.RequiredArgsConstructor;
