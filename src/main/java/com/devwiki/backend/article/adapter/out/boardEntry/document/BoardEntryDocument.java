@@ -1,26 +1,32 @@
-package com.devwiki.backend.article.domain.boardEntry;
+package com.devwiki.backend.article.adapter.out.boardEntry.document;
 
 import static org.springframework.data.elasticsearch.annotations.FieldType.*;
 
-import java.util.List;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Dynamic;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.Setting;
 
 import com.devwiki.backend.article.domain.article.ArticleType;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
-
-/*
-* 조회용 Document
-* */
-
-@Document(indexName = "board_entry")
-public class BoardEntry {
+@Document(
+	indexName = "board_entry",
+	dynamic = Dynamic.STRICT,
+	createIndex = true
+)
+@Setting(
+	shards = 1,
+	replicas = 0
+)
+@JsonInclude(value = JsonInclude.Include.ALWAYS)
+public class BoardEntryDocument {
 
 	/*
 	id 규칙 : {type}_{articleId}
@@ -43,9 +49,10 @@ public class BoardEntry {
 
 	private Long version;
 
-	private String title ;
+	private @Field(type = Text) String title;
 
-	private Set<String> tags;
+	private @Field(type = Text) Set<String> tags;
 
-	private String conetent;
+	private @Field(type = Text) String content;
+
 }

@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.entity;
+package com.devwiki.backend.article.adapter.out.article.entity;
 
 import com.devwiki.backend.common.jpa.BaseEntity;
 
@@ -10,7 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

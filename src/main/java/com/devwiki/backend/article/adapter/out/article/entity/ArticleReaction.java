@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.entity;
+package com.devwiki.backend.article.adapter.out.article.entity;
 
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;

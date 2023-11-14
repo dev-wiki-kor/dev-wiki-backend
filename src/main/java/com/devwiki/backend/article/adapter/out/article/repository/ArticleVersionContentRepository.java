@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.repository;
+package com.devwiki.backend.article.adapter.out.article.repository;
 
 import java.util.Optional;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleVersionContent;
 
 public interface ArticleVersionContentRepository extends JpaRepository<ArticleVersionContent, Long> {
 

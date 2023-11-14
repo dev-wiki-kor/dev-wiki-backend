@@ -1,12 +1,10 @@
-package com.devwiki.backend.article.adapter.out;
+package com.devwiki.backend.article.adapter.out.article;
 
-import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
-import com.devwiki.backend.article.adapter.out.entity.ArticleMetadata;
-import com.devwiki.backend.article.adapter.out.entity.ArticleTag;
-import com.devwiki.backend.article.adapter.out.entity.ArticleVersionContent;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleMetadata;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleTag;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleVersionContent;
 import com.devwiki.backend.article.domain.article.ArticleType;
 import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
 

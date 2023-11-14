@@ -1,17 +1,21 @@
 
-# 도커 이미지의 기반이 될 이미지를 지정합니다.
+# 벡터 검색 지원때문에 8버전 설치
 FROM docker.elastic.co/elasticsearch/elasticsearch:8.11.0
 
-# Elasticsearch의 환경 변수를 설정합니다.
+# Elasticsearch의 환경 변수 -> 환경변수로만 해도 elasticseasrch.yml 에 반영
 ENV discovery.type=single-node
+
+# localhost 보안 없이 로그인 하는데 필요
 ENV xpack.security.enabled=false
 ENV xpack.security.enrollment.enabled=false
 ENV xpack.security.http.ssl.enabled=false
 ENV xpack.security.transport.ssl.enabled=false
+
+# 1GB 넘으면 부트 오래걸려서 .... 이건 컴 좋으면 더 늘려도 okay
 ENV ES_JAVA_OPTS="-Xms512m -Xmx512m"
 
-# 도커 이미지 빌드 시에 실행되는 명령을 추가할 수 있습니다.
-# 여기서는 특별한 명령을 실행하지 않고 이미지를 기본 설정으로 사용합니다.
 
-# 호스트 머신에서 9200 포트를 사용하여 Elasticsearch에 접속할 수 있도록 포트를 노출합니다.
 EXPOSE 9200
+
+# nori 쓸것임
+RUN elasticsearch-plugin install analysis-nori

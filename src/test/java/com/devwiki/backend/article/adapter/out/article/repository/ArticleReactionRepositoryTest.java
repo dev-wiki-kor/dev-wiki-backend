@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.repository;
+package com.devwiki.backend.article.adapter.out.article.repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 

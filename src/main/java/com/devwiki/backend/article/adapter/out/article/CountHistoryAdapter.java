@@ -1,10 +1,10 @@
-package com.devwiki.backend.article.adapter.out;
+package com.devwiki.backend.article.adapter.out.article;
 
 import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Component;
 
-import com.devwiki.backend.article.adapter.out.repository.ArticleModifyHistoryRepository;
+import com.devwiki.backend.article.adapter.out.article.repository.ArticleModifyHistoryRepository;
 import com.devwiki.backend.article.application.port.out.CountHistoryPort;
 
 import lombok.RequiredArgsConstructor;

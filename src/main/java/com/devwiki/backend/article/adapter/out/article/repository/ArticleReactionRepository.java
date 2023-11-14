@@ -1,10 +1,10 @@
-package com.devwiki.backend.article.adapter.out.repository;
+package com.devwiki.backend.article.adapter.out.article.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.devwiki.backend.article.adapter.out.entity.ArticleReaction;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleReaction;
 
 public interface ArticleReactionRepository extends JpaRepository<ArticleReaction, Long> {
 

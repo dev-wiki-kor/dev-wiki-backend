@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.entity;
+package com.devwiki.backend.article.adapter.out.article.entity;
 
 import java.util.HashSet;
 import java.util.Objects;
