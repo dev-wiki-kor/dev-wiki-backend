@@ -2,11 +2,11 @@ package com.devwiki.backend.article.application.service;
 
 import org.springframework.stereotype.Service;
 
-import com.devwiki.backend.article.adapter.out.entity.ArticleModifyHistory;
-import com.devwiki.backend.article.adapter.out.repository.ArticleModifyHistoryRepository;
-import com.devwiki.backend.article.application.port.in.ArticleEditUsecase;
+import com.devwiki.backend.article.adapter.out.article.entity.ArticleModifyHistory;
+import com.devwiki.backend.article.adapter.out.article.repository.ArticleModifyHistoryRepository;
+import com.devwiki.backend.article.application.port.in.article.ArticleEditUsecase;
 import com.devwiki.backend.article.application.port.in.CreateEditCommand;
-import com.devwiki.backend.article.application.port.out.ArticleEditPort;
+import com.devwiki.backend.article.application.port.out.article.ArticleEditPort;
 import com.devwiki.backend.article.application.port.out.CountHistoryPort;
 import com.devwiki.backend.article.domain.article.articleModify.ArticleEdit;
 

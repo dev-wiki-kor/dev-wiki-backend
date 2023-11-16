@@ -19,6 +19,9 @@ spring:
     port: 6379
     host: localhost
 
+es:
+  host: localhost:9200
+
 cors:
   allow:
     frontend: http://localhost:3001
@@ -26,3 +29,10 @@ cors:
 
 
 
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          elasticsearch:
+            core: DEBUG

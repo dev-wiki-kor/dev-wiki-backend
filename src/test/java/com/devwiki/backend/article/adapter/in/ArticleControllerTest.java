@@ -1,6 +1,5 @@
 package com.devwiki.backend.article.adapter.in;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -18,10 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 
-import com.devwiki.backend.article.application.port.in.ArticleCreateUsecase;
-import com.devwiki.backend.article.application.port.in.ArticleDetailQuery;
-import com.devwiki.backend.article.application.port.in.ArticleEditUsecase;
-import com.devwiki.backend.article.application.service.ArticleDetailQueryHandler;
+import com.devwiki.backend.article.application.port.in.article.ArticleCreateUsecase;
+import com.devwiki.backend.article.application.port.in.article.ArticleDetailQuery;
+import com.devwiki.backend.article.application.port.in.article.ArticleEditUsecase;
 import com.devwiki.backend.article.domain.article.ArticleType;
 import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
 
