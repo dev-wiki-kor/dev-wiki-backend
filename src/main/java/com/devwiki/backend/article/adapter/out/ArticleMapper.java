@@ -1,12 +1,11 @@
-package com.devwiki.backend.article.adapter.out.article;
+package com.devwiki.backend.article.adapter.out;
 
 import java.util.stream.Collectors;
 
-import com.devwiki.backend.article.adapter.out.article.entity.ArticleMetadata;
-import com.devwiki.backend.article.adapter.out.article.entity.ArticleTag;
 import com.devwiki.backend.article.adapter.out.article.entity.ArticleVersionContent;
-import com.devwiki.backend.article.domain.article.ArticleType;
-import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
+import com.devwiki.backend.article.adapter.out.entity.ArticleMetadata;
+import com.devwiki.backend.article.domain.ArticleType;
+import com.devwiki.backend.article.domain.articleDetail.ArticleDetail;
 
 public class ArticleMapper {
 	public static ArticleDetail toArticleDetail(
@@ -15,12 +14,12 @@ public class ArticleMapper {
 		long likes,
 		long dislikes) {
 
-		ArticleDetail.ArticleMetadata metadata = ArticleDetail.ArticleMetadata.of(
+		var metadata = ArticleDetail.ArticleMetadata.of(
 			articleMetadata.getId() + "", // TODO : 태그 처리
 			ArticleType.TRANSLATION,
 			articleMetadata.getSourceUrl(),
 			articleMetadata.getCreatedAt(),
-			articleMetadata.getTags().stream().map(ArticleTag::getTag).collect(Collectors.toSet())
+			articleMetadata.getTags().stream().map(e->e.getTag()).collect(Collectors.toSet())
 		);
 
 		// TODO : github url 가져오기

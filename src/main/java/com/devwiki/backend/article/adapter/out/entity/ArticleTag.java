@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.article.entity;
+package com.devwiki.backend.article.adapter.out.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.devwiki.backend.boardEntry.port.in;
+package com.devwiki.backend.boardEntry.application.port.in;
 
 public interface BoardEntryQuery {
 }

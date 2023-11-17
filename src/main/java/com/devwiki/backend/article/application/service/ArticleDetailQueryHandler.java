@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import com.devwiki.backend.article.application.port.in.article.ArticleDetailQuery;
 import com.devwiki.backend.article.application.port.out.article.ArticleDetailPort;
-import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
+import com.devwiki.backend.article.domain.articleDetail.ArticleDetail;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

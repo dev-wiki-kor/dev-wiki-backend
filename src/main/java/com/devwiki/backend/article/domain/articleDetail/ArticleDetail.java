@@ -1,10 +1,9 @@
-package com.devwiki.backend.article.domain.article.articleDetail;
+package com.devwiki.backend.article.domain.articleDetail;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Set;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+import com.devwiki.backend.article.domain.ArticleType;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +11,6 @@ import lombok.Getter;
 /***
  * 단건 조회에 사용되는 애그리거트
  */
-
 @Getter
 @AllArgsConstructor(staticName = "of")
 public class ArticleDetail {

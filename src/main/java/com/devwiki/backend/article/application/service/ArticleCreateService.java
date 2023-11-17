@@ -6,7 +6,7 @@ import com.devwiki.backend.article.application.port.in.article.ArticleCreateUsec
 import com.devwiki.backend.article.application.port.in.CreateArticleCommand;
 import com.devwiki.backend.article.application.port.out.article.ArticleCreatePort;
 import com.devwiki.backend.article.application.port.out.CountHistoryPort;
-import com.devwiki.backend.article.domain.article.articleModify.ArticleCreation;
+import com.devwiki.backend.article.domain.articleModify.ArticleCreation;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

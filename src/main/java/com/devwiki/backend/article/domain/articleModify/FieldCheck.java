@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.domain.article.articleModify;
+package com.devwiki.backend.article.domain.articleModify;
 
 public class FieldCheck {
 	public static void checkLength(String phrase, int maxLength, String message) {

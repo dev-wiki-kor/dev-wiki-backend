@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.annotations.Dynamic;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+import com.devwiki.backend.article.domain.ArticleType;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.EnumType;
