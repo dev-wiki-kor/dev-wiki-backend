@@ -1,13 +1,13 @@
-package com.devwiki.backend.article.adapter.out.article;
+package com.devwiki.backend.article.adapter.out;
 
 import org.springframework.stereotype.Component;
 
+import com.devwiki.backend.article.domain.articleModify.ArticleEdit;
 import com.devwiki.backend.common.aop.lock.DistributedLock;
 import com.devwiki.backend.article.adapter.out.article.entity.ArticleVersionContent;
 import com.devwiki.backend.article.adapter.out.article.repository.ArticleVersionContentRepository;
 import com.devwiki.backend.article.application.port.out.article.ArticleEditPort;
 import com.devwiki.backend.article.application.port.out.GeneratedVersion;
-import com.devwiki.backend.article.domain.article.articleModify.ArticleEdit;
 
 import lombok.RequiredArgsConstructor;
 

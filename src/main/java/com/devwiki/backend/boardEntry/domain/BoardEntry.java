@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+import com.devwiki.backend.article.domain.ArticleType;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -23,7 +23,7 @@ import jakarta.persistence.Enumerated;
 public class BoardEntry {
 
 	/*
-	id 규칙 : {type}_{articleId}
+	id 규칙 : 자연 키 사용 , {type}_{articleId}
 	-> 업데이트에 사용 ( search 쿼리보다 id 하나 찍고 가는게 빠름 )
 	* */
 	private @Id String id;

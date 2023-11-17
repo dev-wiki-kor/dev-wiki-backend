@@ -20,8 +20,8 @@ import org.springframework.util.MultiValueMap;
 import com.devwiki.backend.article.application.port.in.article.ArticleCreateUsecase;
 import com.devwiki.backend.article.application.port.in.article.ArticleDetailQuery;
 import com.devwiki.backend.article.application.port.in.article.ArticleEditUsecase;
-import com.devwiki.backend.article.domain.article.ArticleType;
-import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
+import com.devwiki.backend.article.domain.ArticleType;
+import com.devwiki.backend.article.domain.articleDetail.ArticleDetail;
 
 @WebMvcTest(controllers = ArticleController.class)
 @AutoConfigureMockMvc(addFilters = false)

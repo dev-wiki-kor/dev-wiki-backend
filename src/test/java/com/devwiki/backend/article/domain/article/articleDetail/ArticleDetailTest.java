@@ -7,7 +7,8 @@ import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+import com.devwiki.backend.article.domain.ArticleType;
+import com.devwiki.backend.article.domain.articleDetail.ArticleDetail;
 
 class ArticleDetailTest {
 

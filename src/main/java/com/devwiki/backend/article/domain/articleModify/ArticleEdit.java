@@ -1,8 +1,10 @@
-package com.devwiki.backend.article.domain.article.articleModify;
+package com.devwiki.backend.article.domain.articleModify;
 
-import static com.devwiki.backend.article.domain.article.articleModify.FieldCheck.*;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+
+import static com.devwiki.backend.article.domain.articleModify.FieldCheck.*;
+
+import com.devwiki.backend.article.domain.ArticleType;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

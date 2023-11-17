@@ -1,15 +1,15 @@
-package com.devwiki.backend.article.adapter.out.article;
+package com.devwiki.backend.article.adapter.out;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
-import com.devwiki.backend.article.adapter.out.article.entity.ArticleMetadata;
 import com.devwiki.backend.article.adapter.out.article.entity.ArticleVersionContent;
-import com.devwiki.backend.article.adapter.out.article.repository.ArticleMetadataRepository;
 import com.devwiki.backend.article.adapter.out.article.repository.ArticleReactionRepository;
 import com.devwiki.backend.article.adapter.out.article.repository.ArticleVersionContentRepository;
+import com.devwiki.backend.article.adapter.out.entity.ArticleMetadata;
+import com.devwiki.backend.article.adapter.out.repository.ArticleMetadataRepository;
 import com.devwiki.backend.article.application.port.out.article.ArticleDetailPort;
-import com.devwiki.backend.article.domain.article.articleDetail.ArticleDetail;
+import com.devwiki.backend.article.domain.articleDetail.ArticleDetail;
 
 import lombok.RequiredArgsConstructor;
 

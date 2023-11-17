@@ -15,9 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
-import com.devwiki.backend.article.adapter.out.article.ArticleEditAdapter;
-import com.devwiki.backend.article.domain.article.ArticleType;
-import com.devwiki.backend.article.domain.article.articleModify.ArticleEdit;
+import com.devwiki.backend.article.domain.ArticleType;
+import com.devwiki.backend.article.domain.articleModify.ArticleEdit;
 
 @SpringBootTest
 	/*

@@ -1,6 +1,6 @@
-package com.devwiki.backend.boardEntry.port.out;
+package com.devwiki.backend.boardEntry.application.port.out;
 
-import com.devwiki.backend.article.domain.article.ArticleType;
+import com.devwiki.backend.article.domain.ArticleType;
 
 public interface ApplyReactionPort {
 
