@@ -25,7 +25,9 @@ public class BoardEntryController {
 	public ResponseEntity searchBoardEntry(@RequestBody ArticleSearchRequest articleSearchRequest) {
 
 		List<DisplayBoardEntry> entries = boardEntryQuery.search(new BoardEntryQueryCommand(
-			/*build article search command */
+			articleSearchRequest.searchWord(),
+			articleSearchRequest.author(),
+			articleSearchRequest.tags()
 		));
 
 		return ResponseEntity.ok(entries);

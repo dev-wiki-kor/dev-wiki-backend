@@ -15,9 +15,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 
-import com.devwiki.backend.article.adapter.out.article.ArticleEditAdapter;
 import com.devwiki.backend.article.domain.article.ArticleType;
 import com.devwiki.backend.article.domain.article.articleModify.ArticleEdit;
+
+import jakarta.transaction.Transactional;
 
 @SpringBootTest
 	/*
@@ -29,6 +30,8 @@ class ArticleEditAdapterTest {
 	private static String LOCK_RELEASED_BY_OTHER_THREAD_MESSAGE = "java.lang.IllegalMonitorStateException: attempt to unlock lock, not locked by current thread by";
 	@Autowired
 	ArticleEditAdapter articleEditAdapter;
+
+
 
 	@Test
 	@Sql(scripts = {"classpath:ArticleTestSample.sql"})
@@ -51,6 +54,7 @@ class ArticleEditAdapterTest {
 
 	@Test
 	@Sql(scripts = {"classpath:ArticleTestSample.sql"})
+	@Transactional
 	void 편집_실패_없는_문서() {
 		assertThrows(RuntimeException.class, () ->
 			articleEditAdapter.editArticle(
@@ -59,7 +63,8 @@ class ArticleEditAdapterTest {
 	}
 
 	@Test
-	@Sql(scripts = {"classpath:ArticleTestSample.sql"})
+	@Sql(scripts = {"classpath:ArticleEditTestSql.sql"})
+	@Transactional
 		/*
 		 * id 채번이 비동기 수행시에도 순서를 보장함을 확인 .
 		 * */

@@ -18,7 +18,7 @@ public class BoardEntrySearchAdapter implements BoardEntrySearchPort {
 	BoardEntryDocumentRepository documentRepository;
 	@Override
 	public List<DisplayBoardEntry> search(BoardEntrySearchParams params) {
-		/*
+/*
 		var documentList  = documentRepository.termQuery();
 
 		List<DisplayBoardEntry> displayBoardEntries
@@ -26,7 +26,8 @@ public class BoardEntrySearchAdapter implements BoardEntrySearchPort {
 
 		return displayBoardEntries;
 
-		 */
+
+ */
 
 		return null;
 	}

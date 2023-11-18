@@ -20,6 +20,8 @@ public class BoardEntryQueryService implements BoardEntryQuery {
 	@Override
 	public List<DisplayBoardEntry> search(BoardEntryQueryCommand command) {
 
-		return boardEntrySearchPort.search(new BoardEntrySearchParams());
+		return boardEntrySearchPort.search(new BoardEntrySearchParams(
+			command.searchWord(), command.author(), command.tags()
+		));
 	}
 }

@@ -1,4 +1,10 @@
 package com.devwiki.backend.boardEntry.application.port.out;
 
-public record BoardEntrySearchParams() {
+import java.util.Set;
+
+public record BoardEntrySearchParams(
+	String searchWord,
+	String author,
+	Set<String> tags
+) {
 }
