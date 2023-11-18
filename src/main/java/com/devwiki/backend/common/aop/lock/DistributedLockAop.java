@@ -24,7 +24,7 @@ public class DistributedLockAop {
 	private final RedissonClient redissonClient;
 	private final LockManageTransaction lockManageTransaction;
 
-	@Around("@annotation(com.devwiki.backend.aop.lock.DistributedLock)")
+	@Around("@annotation(com.devwiki.backend.common.aop.lock.DistributedLock)")
 	public Object lock(final ProceedingJoinPoint joinPoint) throws Throwable {
 		MethodSignature signature = (MethodSignature)joinPoint.getSignature();
 		Method method = signature.getMethod();

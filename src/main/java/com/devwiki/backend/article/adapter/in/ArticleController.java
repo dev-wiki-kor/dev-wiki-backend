@@ -34,7 +34,7 @@ public class ArticleController {
 	}
 
 	@PostMapping("/create")
-	public ResponseEntity createArticle(@RequestBody CreateArticleRequestDto requestDto) {
+	public ResponseEntity createArticle(@RequestBody CreateArticleRequest requestDto) {
 
 		articleCreateUsecase.create(CreateArticleCommand.of(
 			requestDto.userId(),
@@ -48,14 +48,14 @@ public class ArticleController {
 	}
 
 	@PostMapping("/edit")
-	public ResponseEntity editArticle(@RequestBody EditArticleRequestDto editArticleRequestDto) {
+	public ResponseEntity editArticle(@RequestBody EditArticleRequest editArticleRequest) {
 
 		articleEditUsecase.edit(CreateEditCommand.of(
-			editArticleRequestDto.articleType(),
-			editArticleRequestDto.userId(),
-			editArticleRequestDto.articleId(),
-			editArticleRequestDto.parentVersion(),
-			editArticleRequestDto.content()
+			editArticleRequest.articleType(),
+			editArticleRequest.userId(),
+			editArticleRequest.articleId(),
+			editArticleRequest.parentVersion(),
+			editArticleRequest.content()
 		));
 
 		return ResponseEntity.ok("editted : ");

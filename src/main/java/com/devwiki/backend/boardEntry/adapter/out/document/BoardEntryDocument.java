@@ -2,12 +2,15 @@ package com.devwiki.backend.boardEntry.adapter.out.document;
 
 import static org.springframework.data.elasticsearch.annotations.FieldType.*;
 
+import java.lang.Long;
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Dynamic;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.elasticsearch.annotations.Setting;
 
 import com.devwiki.backend.article.domain.article.ArticleType;
@@ -15,6 +18,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.Getter;
 
 @Document(
 	indexName = "board_entry",
@@ -26,6 +30,7 @@ import jakarta.persistence.Enumerated;
 	replicas = 0
 )
 @JsonInclude(value = JsonInclude.Include.ALWAYS)
+@Getter
 public class BoardEntryDocument {
 
 	/*
@@ -39,9 +44,9 @@ public class BoardEntryDocument {
 
 	private Long articleId;
 
-	private @Field(type = Date) String articleUpdatedDate;
+	private @Field(type = FieldType.Date, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'") LocalDateTime articleUpdatedDate;
 
-	private @Field(type = Date) String articleEdittedDate;
+	private @Field(type = FieldType.Date, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'") LocalDateTime  articleEdittedDate;
 
 	private Long editorId;
 

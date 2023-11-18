@@ -5,4 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import com.devwiki.backend.boardEntry.adapter.out.document.BoardEntryDocument;
 
 public interface BoardEntryDocumentRepository extends CrudRepository<BoardEntryDocument, String> {
+
+	/* TODO :*/
+	//List<BoardEntryDocument> termQuery();
 }

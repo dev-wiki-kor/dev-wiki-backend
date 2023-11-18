@@ -1,4 +1,4 @@
-package com.devwiki.backend.article.adapter.out.article.repository;
+package com.devwiki.backend.article.adapter.out.repository;
 
 import java.util.Optional;
 

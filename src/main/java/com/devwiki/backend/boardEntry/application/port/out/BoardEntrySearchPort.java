@@ -1,4 +1,11 @@
-package com.devwiki.backend.boardEntry.port.out;
+package com.devwiki.backend.boardEntry.application.port.out;
 
-public class BoardEntrySearchPort {
+import java.util.List;
+
+import com.devwiki.backend.boardEntry.domain.DisplayBoardEntry;
+
+public interface BoardEntrySearchPort {
+
+	public List<DisplayBoardEntry> search(BoardEntrySearchParams params);
+
 }

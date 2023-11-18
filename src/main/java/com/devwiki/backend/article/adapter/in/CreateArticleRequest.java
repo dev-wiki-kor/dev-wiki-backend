@@ -1,15 +1,19 @@
 package com.devwiki.backend.article.adapter.in;
 
+import java.util.Set;
+
 import lombok.NonNull;
 
-public record EditArticleRequestDto(
-
+public record CreateArticleRequest(
 	@NonNull Long userId,
 	@NonNull String articleType,
-	@NonNull Long articleId,
-	@NonNull Long parentVersion,
+	String sourceUrl,
+	Set tags,
+	@NonNull String title,
 	@NonNull String content
 
 ) {
 
 }
+
+
