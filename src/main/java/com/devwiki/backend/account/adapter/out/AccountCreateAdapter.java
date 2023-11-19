@@ -16,11 +16,19 @@ public class AccountCreateAdapter implements AccountCreatePort {
 
 
     @Override
-    public void createAccount(GithubUserInfoResponse githubUserInfoResponse) {
+    public void createAccount(GithubUserInfoResponse githubUserInfoResponse,OauthType oauthType) {
         accountMetadataRepository.save(AccountMetadata.of(
                 githubUserInfoResponse.email(),
+                githubUserInfoResponse.uniqueId(),
                 githubUserInfoResponse.nickname(),
                 githubUserInfoResponse.profileUrl(),
-        ))
+                githubUserInfoResponse.pageUrl(),
+                oauthType
+        ));
+    }
+
+    @Override
+    public boolean isSignUp(GithubUserInfoResponse githubUserInfoResponse) {
+        return accountMetadataRepository.existsAccountMetadataByUniqueId(githubUserInfoResponse.uniqueId());
     }
 }

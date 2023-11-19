@@ -1,7 +1,12 @@
 package com.devwiki.backend.account.adapter.in;
 
 import java.util.Locale;
+import java.util.UUID;
 
+import com.devwiki.backend.account.adapter.out.AccountCreateAdapter;
+import com.devwiki.backend.account.adapter.out.OauthType;
+import com.devwiki.backend.common.idGenerator.UUIDGenerator;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpMethod;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -29,6 +34,7 @@ public class AccountController {
 
 	private final GithubAccessTokenFeign githubAccessTokenFeign;
 
+	private final AccountCreateAdapter accountCreateAdapter;
 	private final GithubUserInfoFeign githubUserInfoFeign;
 
 	private static final String GITHUB_SECRET = "8dca729660542f8a7038a0f234a231d4e7fa94aa";
@@ -39,6 +45,7 @@ public class AccountController {
 		HttpServletRequest request,
 		HttpServletResponse response,
 		HttpMethod httpMethod,
+		HttpSession session,
 		Locale locale, // 언어 정보
 		@RequestHeader MultiValueMap<String, String> headerMap,
 		@RequestHeader("host") String host,
@@ -72,6 +79,16 @@ public class AccountController {
 		// 3. github 유저 정보 반환 .
 		GithubUserInfoResponse res = githubUserInfoFeign.getUserInfo(loginSuccessInfo.getBearerToken());
 		log.info(res.toString());
+
+		// 4. 회원가입을 진행하지 않은 유저라면 DB에 유저정보를 적재한다.
+		if(!accountCreateAdapter.isSignUp(res)){
+			accountCreateAdapter.createAccount(res, OauthType.GITHUB);
+		}
+
+		// 5. UUID를 발행하여 Spring Session에 저장한다.
+		UUID uuid = UUIDGenerator.generateUUID();
+		session.setAttribute("DEVWIKI:SESSION",uuid);
+
 
 		return new LoginSuccessDto(loginSuccessInfo.accessToken(), res.uniqueId());
 	}

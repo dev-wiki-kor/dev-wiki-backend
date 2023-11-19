@@ -1,5 +1,6 @@
 package com.devwiki.backend.account.adapter.out.entity;
 
+import com.devwiki.backend.account.adapter.out.OauthType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,40 +21,46 @@ public class AccountMetadata {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String uniqueId;
     private String email;
 
     private String nickname;
+
 
     private String profileUrl;
 
     private String pageUrl;
 
-    private String accessToken;
+    @Enumerated(value = EnumType.STRING)
+    private OauthType oauthType;
 
     private boolean deleted = Boolean.FALSE; // 삭제 여부 기본값
 
-    private AccountMetadata(String email, String nickname, String profileUrl, String pageUrl, String accessToken){
+    private AccountMetadata(String email,String uniqueId, String nickname, String profileUrl, String pageUrl,OauthType oauthType){
         this.id=null;
         this.email = email;
+        this.uniqueId = uniqueId;
         this.nickname = nickname;
         this.profileUrl = profileUrl;
         this.pageUrl = pageUrl;
-        this.accessToken = accessToken;
+        this.oauthType = oauthType;
     }
 
     public static AccountMetadata of(
             String email,
+            String uniqueId,
             String nickname,
             String profileUrl,
             String pageUrl,
-            String accessToken
+            OauthType oauthType
     ) {
         return new AccountMetadata(
-                Objects.requireNonNull(email),
-                Objects.requireNonNull(nickname),
-                Objects.requireNonNull(profileUrl),
-                Objects.requireNonNull(pageUrl),
-                Objects.requireNonNull(accessToken)
+                email,
+                Objects.requireNonNull(uniqueId),
+                nickname,
+                profileUrl,
+                pageUrl,
+                oauthType
         );
     }
 

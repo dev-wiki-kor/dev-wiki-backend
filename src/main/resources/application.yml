@@ -19,6 +19,11 @@ spring:
     port: 6379
     host: localhost
 
+  session:
+    store-type: redis  # 우리가 사용할 세션 저장소는 Redis
+    redis:
+      namespace: devwiki:session
+
 es:
   host: localhost:9200
 
@@ -27,6 +32,15 @@ cors:
     frontend: http://localhost:3001
 
 
+server:
+  servlet:
+    session:
+      cookie:
+        path: / # 도메인에 사용될 수 있는 경로를 나타냄.
+        name: JSESSIONID
+        http-only: true
+        secure: false # https로 통신할때는 true로 변경해야 함.
+      timeout: 3600
 
 
 logging:
