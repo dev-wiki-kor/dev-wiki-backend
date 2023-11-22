@@ -1,0 +1,41 @@
+{
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "articleType": {
+        "type": "keyword"
+      },
+      "articleId": {
+        "type": "long"
+      },
+      "articleUpdatedDate": {
+        "type": "date",
+        "format": "yyyy-MM-dd'T'HH:mm:ss'Z'"
+      },
+      "articleEdittedDate": {
+        "type": "date",
+        "format": "yyyy-MM-dd'T'HH:mm:ss'Z'"
+      },
+      "editorId": {
+        "type": "keyword"
+      },
+      "uploaderId": {
+        "type": "keyword"
+      },
+      "version": {
+        "type": "long"
+      },
+      "title": {
+        "type": "text"
+      },
+      "tags": {
+        "type": "text"
+      },
+      "content": {
+        "type": "text"
+      }
+    }
+  }
+}
