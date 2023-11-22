@@ -4,7 +4,7 @@ import java.util.Set;
 
 public record BoardEntryQueryCommand(
 	String searchWord,
-	String author,
+	String editorNickName,
 	Set<String> tags
 ) {
 }

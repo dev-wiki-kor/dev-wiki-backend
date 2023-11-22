@@ -6,6 +6,6 @@ import com.devwiki.backend.boardEntry.domain.DisplayBoardEntry;
 
 public interface BoardEntrySearchPort {
 
-	public List<DisplayBoardEntry> search(BoardEntrySearchParams params);
+	public List<DisplayBoardEntry> search(BoardEntrySearchParams params) ;
 
 }

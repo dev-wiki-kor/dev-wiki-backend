@@ -13,7 +13,7 @@ import org.springframework.test.context.jdbc.Sql;
 class ArticleReactionRepositoryTest {
 
 	@Autowired
-	ArticleReactionRepository articleReactionRepository;
+	com.devwiki.backend.article.adapter.out.article.repository.ArticleReactionRepository articleReactionRepository;
 
 	@Test
 	@Sql(scripts = {"classpath:ArticleTestSample.sql"})

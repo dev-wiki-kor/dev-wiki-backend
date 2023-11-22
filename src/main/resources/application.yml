@@ -19,6 +19,15 @@ spring:
     port: 6379
     host: localhost
 
+  data:
+    elasticsearch:
+      properties:
+        index:
+          search:
+            slowlog:
+              threshold:
+                query:
+                  info: 1ms
 es:
   host: localhost:9200
 
@@ -27,12 +36,16 @@ cors:
     frontend: http://localhost:3001
 
 
+  logging:
+    level:
+      org:
+        elasticsearch:
+          index:
+            search:
+              slowlog:
+                query: info
 
 
 logging:
   level:
-    org:
-      springframework:
-        data:
-          elasticsearch:
-            core: DEBUG
+    tracer: TRACE

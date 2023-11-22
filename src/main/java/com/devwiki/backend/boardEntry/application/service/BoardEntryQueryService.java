@@ -17,11 +17,19 @@ import lombok.RequiredArgsConstructor;
 public class BoardEntryQueryService implements BoardEntryQuery {
 
 	private final BoardEntrySearchPort boardEntrySearchPort;
+
 	@Override
 	public List<DisplayBoardEntry> search(BoardEntryQueryCommand command) {
 
+		var editorId = getEditorId(command.editorNickName());
+
 		return boardEntrySearchPort.search(new BoardEntrySearchParams(
-			command.searchWord(), command.author(), command.tags()
+			command.searchWord(), editorId, command.tags()
 		));
+	}
+
+	private Long getEditorId(String nickname) {
+		// to-be :  account 완료되면 nickname -> PK 쿼리 하는 것으로
+		return Long.valueOf(nickname);
 	}
 }
